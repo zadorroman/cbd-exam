@@ -1,0 +1,27 @@
+.accordion {
+
+    &__card {
+
+        background-color: transparent;
+        border: none;
+        border-radius: 0;
+        border-top: 1px solid #eaedde;
+        border-bottom: 1px solid #eaedde;
+    }
+
+    &__title {
+        color: $gl;
+        letter-spacing: 5.04px;
+    }
+
+    &__header {
+        border-bottom: none;
+        background-color: transparent;
+    }
+
+    &__body {
+        padding-left: 45px;
+        letter-spacing: 0.72px;
+        line-height: 40px;
+    }
+}

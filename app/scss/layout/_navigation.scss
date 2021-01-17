@@ -1,0 +1,177 @@
+.navigation {
+    padding: 35px 20px;
+    position: relative;
+    @include size(100%, 105px);
+    @include pos(fixed, $t: 0,$l: 0, $z:99);
+
+    
+    &::after {
+        @include pos($l:0, $b:0);
+        @include size(100%, 1px);
+        content: '';
+        background: #fff;
+        opacity: .4;
+    }
+    display: flex;
+    justify-content: space-between;
+    background: rgba(255, 255, 255,.5);
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.0984488);
+
+    &__list {
+        display: none;
+    }
+    
+    &__toggle {
+        display: none;
+    
+        &:checked {
+            + .navigation__label {
+    
+    
+                &::before {
+                    transform: translate(100%);
+                    top: 4px;
+                    right: -2px;
+                }
+    
+                &::after {
+                    transform: translate(-100%);
+                    top: 4px;
+                    right: 2px;
+                    
+                }
+            }
+    
+             ~ .navigation__list {
+                right: -75%;
+            }
+        }
+    }
+
+    &__circ {
+        @include size(4px);
+        background: #fff;
+        border-radius: 50%;
+        @include pos($t:4px, $r:0);
+    }
+
+
+    &__label {
+        @include size(15px);
+        @include pos(relative, $z: 99);
+        display: block;
+        border-radius: 50%;
+        transition: all .3s;
+
+        &::before,
+        &::after {
+            @include size(4px);
+            @include pos($r: 0);
+            content: '';
+            background: #fff;
+            transition: all .3s;
+            border-radius: 50%;
+        }
+
+        &::before {
+            top: -2px;
+        }
+
+        &::after {
+            top: 10px;
+        }
+    }
+    
+    &__item {
+        margin-bottom: 5px;
+        padding: 0;
+    }
+    
+    &__link {
+        @extend .menu__link;    
+    }
+}
+
+
+
+
+@media (max-width: $mobile) {
+        
+    .navigation__list {
+        display: block;
+        @include size(100%);
+        @include pos($r: -100%, $t: 100px);
+        transition: all .3s;
+        text-align: left;
+    }    
+    
+}
+
+@media (min-width: $mobile) {
+
+    .navigation {
+        padding: 0;
+        
+
+        &__toggle {
+            display: none;
+        }
+    
+        &__label {
+            display: none;
+        }
+    
+        &__circle {
+            display: none;
+        }
+    
+        &__list {
+            transition: all .3s;
+            display: flex;
+            flex-direction: row;
+        }
+    
+        &__item {
+
+            padding: 30px 30px;
+            position: relative;
+    
+            &::before {
+                @include size(1px, 105%);
+                @include pos($l:0, $t:0);
+                content: '';
+                background: #fff;
+                opacity: .4;
+                
+            }
+        }
+            
+        &__link {
+            text-shadow: none;
+            font-size: 16px;
+            letter-spacing: 0.96px;
+
+            &::before {
+                content: '';
+                background: $gl;
+                @include size(0, 2px);
+                @include pos($t:45%, $l:50%);
+                transition: all .3s;
+                transform: translateX(-10%);
+            }
+
+            &:hover {
+                &::before {
+                    width: 120%;
+                    left: 0;
+                }
+            }
+
+            .icon-search {
+                margin-right: 10px;
+            }
+        }
+    }
+
+    
+}    

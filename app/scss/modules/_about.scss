@@ -1,0 +1,33 @@
+.about {
+    margin-top: 100px;
+    color: $bl;
+    background-color: #f7f8f3;
+    padding-top: 1px;
+    padding-bottom: 1px;
+
+    &__frame {
+        width: 690px;
+        position: relative;
+        margin: 0 auto 115px;
+    }
+
+    &__wrap {
+        @include pos($l:0, $t:0);
+        padding: 30px 100px ;
+
+    }
+
+    &__text {
+        font-size: 24px;
+        line-height: 75px;
+        letter-spacing: 4.8px;
+        text-transform: uppercase;
+        width: 300px;
+        margin: 0 auto;
+        
+    }
+
+    &__tabs {
+        margin-bottom: 150px;
+    }
+}

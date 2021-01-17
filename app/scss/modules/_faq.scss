@@ -1,0 +1,13 @@
+.faq {
+    background-color: #f7f8f3;
+    color: $bl;
+    margin-bottom: 150px;
+
+    &__title {
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 30px;
+        letter-spacing: 6px;
+        margin-bottom: 50px;
+    }
+}

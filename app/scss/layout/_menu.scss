@@ -1,0 +1,163 @@
+.menu {
+
+
+
+    &__list {
+        display: none;
+    }
+    
+    &__toggle {
+        display: none;
+    
+        &:checked {
+            + .menu__label {
+    
+                .menu__line {
+                    display: none;
+                 }
+    
+                &::before {
+                    transform: rotate(45deg);
+                    top: 8px;
+                }
+    
+                &::after {
+                    transform: rotate(-45deg);
+                    bottom: 4px;
+                }
+            }
+    
+             ~ .menu__list {
+                left: 20px;
+            }
+        }
+    }
+    
+    &__label {
+        @include size(20px, 15px);
+        @include pos(relative, $t: 0px,$r: 0px, $z: 99);
+        display: block;
+    
+        &::before,
+        &::after {
+            @include size(100%, 3px);
+            @include pos($r: 0);
+            content: '';
+            background: #fff;
+            transition: all .2s;
+        }
+    
+        &::before {
+            top: -1px;
+        }
+    
+        &::after {
+            bottom: 1px;
+        }
+    }
+    
+    &__line {
+        @include size(100%, 3px);
+        @include pos(absolute, $l: 0, $t: 35%);
+        background: #fff;
+    }
+    
+    &__item {
+        margin-bottom: 5px;
+    }
+    
+    &__link {
+        display: inline-block;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 400;
+        font-size: 16px;
+        text-transform: uppercase;
+        position: relative;
+        text-shadow:1px 1px 0 #000,
+                    2px 2px 0 #5db95a,
+                    3px 3px 0 #40923d,
+                    4px 4px 0 #1f5c1d;
+        transition: all .3s;           
+
+
+
+
+        &:hover {
+            text-decoration: none;
+            color: #fff;
+        }  
+    }
+}
+    
+    
+@media (max-width: $mobile) {
+    .menu {
+        &__list {
+            display: block;
+            @include size(100%);
+            @include pos($l: -200px, $t: 100px);
+            transition: all .3s;
+            text-align: left;      
+       }    
+        
+    }
+    
+}
+    
+@media (min-width: $mobile) {
+    .menu {
+
+        &__toggle {
+            display: none;
+        }
+    
+        &__label {
+            display: none;
+        }
+    
+        &__line {
+            display: none;
+        }
+    
+        &__list {
+            transition: all .3s;
+            display: flex;
+            flex-direction: row;
+        }
+    
+        &__item {
+
+            padding: 0 20px;
+        }
+        
+        &__link {
+            text-shadow: none;
+            font-size: 16px;
+            line-height: 40px;
+            letter-spacing: 0.96px;;
+
+
+            &::before {
+                content: '';
+                background: darkolivegreen;
+                @include size(0, 2px);
+                @include pos($t:45%, $l:50%);
+                transition: all .3s;
+                transform: translateX(-10%);
+            }
+
+            &:hover {
+                &::before {
+                    width: 120%;
+                    left: 0;
+                }
+            }
+    
+            &::after {
+                display: none;
+            }
+        }
+    }
+ }    
+      

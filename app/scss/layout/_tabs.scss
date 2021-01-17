@@ -1,0 +1,82 @@
+.tabs {
+
+    &__list {
+        position: relative;
+        margin-bottom: 145px;
+        transition: all .3s;  
+
+        &::before {
+            @include size(100%, 2px);
+            @include pos($l:0, $b:-20px);
+            content: '';
+            background: #ced6af;
+            transition: all .3s;
+        }
+    }
+
+    &__item {
+        margin-right: 10px;
+        transition: all .3s;  
+    }
+
+    &__link.active {
+        transition: all .3s;
+        position: relative;
+        &::before {
+            @include size(100%, 2px);
+            @include pos($l:0, $b:-19px);
+            content: '';
+            background: #1c1c1b;
+            transition: all .3s;
+        }
+    }
+    
+    &__link {
+        transition: all .3s;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-size: 14px;
+        
+
+        @media (min-width: $mobile) {
+            font-size: 30px;
+            letter-spacing: 6px;
+        }
+    }
+
+    &__box {
+
+    }
+
+    &__title {
+        text-transform: uppercase;
+        font-size: 24px;
+        line-height: 40px;
+        letter-spacing: 4.8px;
+        margin-bottom: 45px;
+    }
+
+    &__text {
+        letter-spacing: 0.72px;
+        color: $gl;
+        line-height: 40px;
+        margin-bottom: 60px;
+    }
+
+    &__img {
+margin-top: -50px;
+    }
+
+    &__pic {
+        margin-bottom: 30px;
+    }
+}
+
+@media (min-width: $mobile) {
+    .tabs {
+        &__item {
+        
+            margin-right: 95px;
+        }
+    }
+}

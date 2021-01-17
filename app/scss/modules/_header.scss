@@ -1,0 +1,199 @@
+.header {
+    background: url('../images/header.jpg') no-repeat bottom center;
+    background-size: cover;
+    overflow: hidden;
+    padding-top: 1px;
+    min-height: 100vh;
+    padding-bottom: 1px;
+    max-height: 100vh;
+
+
+    &__box {
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+    }
+
+
+    &__title {
+        margin-top: 35.6vh;
+        font-size: 20px;
+
+        letter-spacing: 2.4px;
+        text-transform: uppercase;
+        text-align: right;
+        color: #f7f8f3;
+        margin-bottom: 30px;     
+
+        @media (min-width: $mobile) {
+            font-size: 55px;
+            line-height: 75px;
+            letter-spacing: 15.4px;
+        }
+    }
+
+    &__subtitle {
+        font-size: 16px;
+        letter-spacing: 2px;
+        text-align: right;
+        color: #f7f8f3;
+
+        @media (min-width: $mobile) {
+            font-size: 24px;
+            line-height: 75px;
+            font-weight: 300;
+            letter-spacing: 6.72px;
+        }
+    }
+
+    &__sublink {
+        color: #f7f8f3;
+        line-height: 75px;
+        letter-spacing: 5.04px;
+        display: block;
+        transition: all .3s;
+        font-weight: 300;
+        margin-bottom: 21vh;
+        font-size: 11px;
+
+        @media (min-width: $mobile) {
+font-size: 18px;
+            &:hover {
+                transform: scale(1.1);
+                color: #f7f8f3;
+            }
+        }
+
+
+    }
+
+    &__link {
+        display: inline-block;
+
+        text-transform: uppercase;
+        color: #fff;
+        position: relative;
+        transition: all .3s;
+        white-space: nowrap;
+
+
+        @media (min-width: $mobile) {
+            padding: 25px 100px 25px 40px;
+            border: 1px solid #f7f8f3;
+        }
+
+        &::before {
+            content: none;
+
+
+            @media (min-width: $mobile) {
+                @include size(45px, 2px);
+                @include pos($t:50%, $r:40px);
+                content: '';
+                background: #fff;
+                transition: all .1s;
+            }
+        }
+
+        &:hover {
+            text-decoration: none;
+            color: #fff;
+        }
+    }
+
+    &__scroll {
+        color: #fff;
+        display: block;
+        width: 15px;
+        @include pos($b: 5vh, $l:50%);
+
+    }
+
+    &__text {
+        @include pos($b: -25px, $l:-30px);
+        text-transform: uppercase;
+        color: #fff;
+        transform: rotate(-90deg) translateX(105%);
+        padding: 0 0 0 30px;
+        letter-spacing: 2.08px;;
+        
+
+        &::before {
+            
+            @include size(100px, 2px);
+            content: '';
+            @include pos($b:50%, $l:-100px);
+            background: #fff;
+        }
+        
+    }
+}
+
+@media (min-width: $mobile) {
+    .header {
+
+        &::before {
+            @include pos($l:0, $t:0);
+            @include size(100%,277px);
+            content: '';
+            opacity: 0.35;
+            background: linear-gradient(180deg, rgba(1,24,63,1) 0%, rgba(255,255,255,1) 100%);
+            mix-blend-mode: multiply;
+        }
+        
+        padding-top: 1px;
+    
+        &__navigation {
+            @include size(100%, none);
+            
+            display: flex;
+            justify-content: space-between;
+            background: none;
+            box-shadow: none;
+            align-items: center;
+        }
+
+        &__back {
+            background: rgba(255, 255, 255,.5);
+            transition: all .3s;
+
+            .menu__link, .navigation__link, .logo {
+                color: $gl;
+            }
+        }
+
+        &__list {
+            display: flex;
+    
+        }
+
+        &__link {
+            
+
+            &::after {
+                content: '';
+                border: solid #F2F2F2;
+                border-width: 0 2px 2px 0;
+                display: block;
+                transform: rotate(-45deg);
+                transition: all .3s;
+                @include size(0);
+                @include pos($t:50%, $r:40px);
+            }
+
+            &:hover {
+
+                text-decoration: none;
+                color: #fff;
+
+                &::after {
+                    @include size(15px);
+
+                    @include pos($r:41px, $t:41%);
+                }
+
+            }
+        }
+    }
+    
+}
